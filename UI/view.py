@@ -20,18 +20,18 @@ class View(ft.UserControl):
 
     def load_interface(self):
         # title
-        self._title = ft.Text("The MIA Collection database", color="orange", size=24)
+        self._title = ft.Text("The MIA Collection database", color="blue", size=24)
         self._page.controls.append(self._title)
 
         # controls
         self._btnAnalizzaOggetti = ft.ElevatedButton(text="Analizza oggetti",
                                                      on_click=self._controller.handleAnalizzaOggetti,
-                                                     bgcolor="orange",
+                                                     bgcolor="blue",
                                                      color="white",
                                                      width=200)
-        self._txtIdOggetto = ft.TextField(label="Id Oggetto", color="orange", border_color="orange")
+        self._txtIdOggetto = ft.TextField(label="Id Oggetto", color="blue", border_color="blue")
         self._btnCompConnessa = ft.ElevatedButton(text="Cerca Connessa", on_click=self._controller.handleCompConnessa,
-                                                  bgcolor="orange",
+                                                  bgcolor="blue",
                                                   color="white",
                                                   width=200)
 

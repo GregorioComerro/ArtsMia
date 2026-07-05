@@ -9,8 +9,36 @@ class Controller:
         self._model = model
 
     def handleAnalizzaOggetti(self, e):
-        pass
+        self._model.buildGraph()
+        nNodes, nEdges = self._model.getGraphdetails()
+
+        self._view.txt_result.controls.clear()
+        self._view.txt_result.controls.append(ft.Text(f"Il grafo ha {nNodes} nodi e {nEdges} archi"))
+        self._view.update_page()
+
+
 
     def handleCompConnessa(self,e):
-        pass
+        nodo = self._view._txtIdOggetto.value
+
+        if nodo is None:
+            self._view.txt_result.controls.append(ft.Text(f"Indicare un id"))
+
+        componente = self._model.getComponenteConnessa(nodo)
+
+        self._view.txt_result.controls.append(ft.Text(f"La componente connessa contiene {len(componente)} vertici."))
+        grado = self._model.getGrado(nodo)
+
+        self._view.txt_result.controls.append(
+            ft.Text(f"La componente connessa contiene {len(componente)} vertici. Grado nodo: {grado}")
+        )
+
+        idNodo, grado = self._model.getPrimoNodoConnesso()
+        self._view.txt_result.controls.append(
+            ft.Text(f"Prova con id {idNodo}, grado {grado}")
+        )
+
+        self._view.update_page()
+
+
 
